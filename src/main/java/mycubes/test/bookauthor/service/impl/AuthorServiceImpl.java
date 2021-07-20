@@ -1,6 +1,7 @@
 package mycubes.test.bookauthor.service.impl;
 
 import mycubes.test.bookauthor.model.Author;
+import mycubes.test.bookauthor.pojo.AuthorNameAndSuccessRatePojo;
 import mycubes.test.bookauthor.repository.AuthorRepository;
 import mycubes.test.bookauthor.service.AuthorService;
 import org.springframework.stereotype.Service;
@@ -33,5 +34,10 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public void delete(Long id) {
         authorRepository.deleteById(id);
+    }
+
+    @Override
+    public AuthorNameAndSuccessRatePojo getMostSuccessfulAuthor() {
+        return authorRepository.getAuthorNameAndSuccessRate().get(0);
     }
 }

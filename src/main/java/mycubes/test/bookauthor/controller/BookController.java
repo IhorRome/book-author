@@ -3,7 +3,6 @@ package mycubes.test.bookauthor.controller;
 import mycubes.test.bookauthor.dto.request.BookRequestDto;
 import mycubes.test.bookauthor.dto.response.BookAndSuccessRateResponseDto;
 import mycubes.test.bookauthor.dto.response.BookResponseDto;
-import mycubes.test.bookauthor.service.AuthorService;
 import mycubes.test.bookauthor.service.BookService;
 import mycubes.test.bookauthor.mapper.BookMapper;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,14 +23,11 @@ import java.util.stream.Collectors;
 public class BookController {
     private final BookService bookService;
     private final BookMapper bookMapper;
-    private final AuthorService authorService;
 
     public BookController(BookService bookService,
-                          BookMapper bookMapper,
-                          AuthorService authorService) {
+                          BookMapper bookMapper) {
         this.bookService = bookService;
         this.bookMapper = bookMapper;
-        this.authorService = authorService;
     }
 
     @PostMapping
@@ -96,7 +93,7 @@ public class BookController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/most-success-rate-book-by-part-name")
+    @GetMapping("/most-success-rate-by-part-name")
     public List<BookAndSuccessRateResponseDto> getBooksWithMostSuccessRateForEachAuthor(
             @RequestParam String partAuthorName) {
         return bookService.getBooksWithGreatestSuccessRateOfAuthor(partAuthorName)
