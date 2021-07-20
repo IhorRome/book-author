@@ -14,3 +14,4 @@
  find list of most selling books by part of author name</br>
  find list of most published books by part of author name</br>
  find list of most successful books by part of author name</br>
+ find most successful author and his success rate</br>
