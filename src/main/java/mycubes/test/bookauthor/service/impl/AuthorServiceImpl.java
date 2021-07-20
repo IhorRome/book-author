@@ -21,8 +21,8 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public Author update(Author author) {
-        Author authorFromDb = authorRepository.findById(author.getId()).orElseThrow();
+    public Author update(Long id, Author author) {
+        Author authorFromDb = authorRepository.findById(id).orElseThrow();
         authorFromDb.setAuthorName(author.getAuthorName());
         authorFromDb.setEmail(author.getEmail());
         authorFromDb.setBirthDate(author.getBirthDate());

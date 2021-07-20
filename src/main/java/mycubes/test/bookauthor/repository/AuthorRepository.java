@@ -10,5 +10,4 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
     Optional<Author> findFirstByAuthorName(String authorName);
 
     List<Author> findAllByAuthorNameContains(String partAuthorName);
-
 }

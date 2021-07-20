@@ -8,7 +8,7 @@ import java.util.List;
 public interface BookService {
     Book create(Book book);
 
-    Book update(Book book);
+    Book update(Long id, Book book);
 
     void delete(Long id);
 

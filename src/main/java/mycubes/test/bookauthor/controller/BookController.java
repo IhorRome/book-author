@@ -41,11 +41,11 @@ public class BookController {
                                 .dtoToModel(requestDto)));
     }
 
-    @PutMapping
-    public BookResponseDto update(@RequestBody BookRequestDto requestDto) {
+    @PutMapping("/{id}")
+    public BookResponseDto update(@PathVariable Long id, @RequestBody BookRequestDto requestDto) {
         return bookMapper
                 .modelToDto(bookService
-                        .update(bookMapper
+                        .update(id, bookMapper
                                 .dtoToModel(requestDto)));
     }
 

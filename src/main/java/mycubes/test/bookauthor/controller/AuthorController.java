@@ -31,11 +31,11 @@ public class AuthorController {
                                 .dtoToModel(requestDto)));
     }
 
-    @PutMapping
-    public AuthorResponseDto update(@RequestBody AuthorRequestDto requestDto) {
+    @PutMapping("/{id}")
+    public AuthorResponseDto update(@PathVariable Long id, @RequestBody AuthorRequestDto requestDto) {
         return authorMapper
                 .modelToDto(authorService
-                        .update(authorMapper
+                        .update(id, authorMapper
                                 .dtoToModel(requestDto)));
     }
 

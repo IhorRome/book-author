@@ -26,8 +26,8 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book update(Book book) {
-        Book bookFromDb = bookRepository.findById(book.getId()).orElseThrow();
+    public Book update(Long id, Book book) {
+        Book bookFromDb = bookRepository.findById(id).orElseThrow();
         bookFromDb.setBookName(book.getBookName());
         bookFromDb.setAuthor(book.getAuthor());
         bookFromDb.setPublishedAmount(book.getPublishedAmount());
