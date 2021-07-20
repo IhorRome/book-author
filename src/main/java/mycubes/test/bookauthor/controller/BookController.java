@@ -33,7 +33,7 @@ public class BookController {
         this.authorService = authorService;
     }
 
-    @PostMapping("/")
+    @PostMapping
     public BookResponseDto create(@RequestBody BookRequestDto requestDto) {
         return bookMapper
                 .modelToDto(bookService
@@ -41,7 +41,7 @@ public class BookController {
                                 .dtoToModel(requestDto)));
     }
 
-    @PutMapping("/")
+    @PutMapping
     public BookResponseDto update(@RequestBody BookRequestDto requestDto) {
         return bookMapper
                 .modelToDto(bookService

@@ -5,7 +5,6 @@ import mycubes.test.bookauthor.dto.response.AuthorResponseDto;
 import mycubes.test.bookauthor.mapper.AuthorMapper;
 import mycubes.test.bookauthor.service.AuthorService;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -24,7 +23,7 @@ public class AuthorController {
         this.authorMapper = authorMapper;
     }
 
-    @PostMapping("/")
+    @PostMapping
     public AuthorResponseDto create(@RequestBody AuthorRequestDto requestDto) {
         return authorMapper
                 .modelToDto(authorService
@@ -32,7 +31,7 @@ public class AuthorController {
                                 .dtoToModel(requestDto)));
     }
 
-    @PutMapping("/")
+    @PutMapping
     public AuthorResponseDto update(@RequestBody AuthorRequestDto requestDto) {
         return authorMapper
                 .modelToDto(authorService
